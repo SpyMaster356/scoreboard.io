@@ -1,23 +1,22 @@
-import React, {Component, ComponentType} from "react";
-
-import {connect} from "../../redux-connect";
-import Player from "../player.model";
-import {List} from "immutable";
-import PlayerList from "../views/player-list.view";
-import {push} from "connected-react-router";
-import {match} from "react-router";
-import Routes from "../../routes";
+import {push} from 'connected-react-router';
+import {List} from 'immutable';
+import React, {Component, ComponentType} from 'react';
+import {match} from 'react-router';
+import {connect} from '../../redux-connect';
+import Routes from '../../routes';
+import Player from '../player.model';
+import PlayerList from '../views/player-list.view';
 
 interface OwnProps {
-  readonly match: match;
+  readonly match:match;
 }
 
 interface StateProps {
-  readonly players: List<Player>;
+  readonly players:List<Player>;
 }
 
 interface DispatchProps {
-  readonly push: (route: string) => void;
+  readonly push:(route:string) => void;
 }
 
 interface Props extends OwnProps, StateProps, DispatchProps {
@@ -27,10 +26,10 @@ interface Props extends OwnProps, StateProps, DispatchProps {
   state => ({
     players: state.players.toList(),
   }),
-  {push}
+  {push},
 )
 class IndexPage extends Component<Props> {
-  constructor(props: Props) {
+  constructor(props:Props) {
     super(props);
 
     this.onAddPlayerClick = this.onAddPlayerClick.bind(this);
@@ -53,6 +52,6 @@ class IndexPage extends Component<Props> {
   }
 }
 
-export default (IndexPage as any) as ComponentType<OwnProps>
+export default (IndexPage as any) as ComponentType<OwnProps>;
 
 

@@ -1,8 +1,8 @@
-import React, {Component, ComponentType} from "react";
 import {createBrowserHistory} from 'history';
-import {connect} from "./redux-connect";
-import {Route} from "react-router";
-import PlayerRouter from "./player/players.router";
+import React, {Component, ComponentType} from 'react';
+import {Route} from 'react-router';
+import PlayerRouter from './player/players.router';
+import {connect} from './redux-connect';
 
 export const history = createBrowserHistory();
 
@@ -26,4 +26,4 @@ class AppRouter extends Component<Props> {
   }
 }
 
-export default (AppRouter as any) as ComponentType<OwnProps>
+export default (AppRouter as any) as ComponentType<OwnProps>;

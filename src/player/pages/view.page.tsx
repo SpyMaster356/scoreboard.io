@@ -1,31 +1,35 @@
-import React, {Component, ComponentType} from "react";
-import {match} from "react-router";
-import {Link} from "react-router-dom";
-
-import {connect} from "../../redux-connect";
-import Player, {nullPlayer} from "../player.model";
-import PlayerFormView from "../views/player-form.view";
-import {destroyPlayer, DestroyPlayerOptions, updatePlayer, UpdatePlayerOptions} from "../players.actions";
-import Routes from "../../routes";
-import {push} from "connected-react-router";
+import {push} from 'connected-react-router';
+import React, {Component, ComponentType} from 'react';
+import {match} from 'react-router';
+import {Link} from 'react-router-dom';
+import {connect} from '../../redux-connect';
+import Routes from '../../routes';
+import Player, {nullPlayer} from '../player.model';
+import {
+  destroyPlayer,
+  DestroyPlayerOptions,
+  updatePlayer,
+  UpdatePlayerOptions,
+} from '../players.actions';
+import PlayerFormView from '../views/player-form.view';
 
 interface RouteParams {
-  readonly playerId: string;
+  readonly playerId:string;
 }
 
 interface OwnProps {
-  readonly match: match<RouteParams>
+  readonly match:match<RouteParams>
 }
 
 interface StateProps {
-  readonly playerId: number;
-  readonly player: Player;
+  readonly playerId:number;
+  readonly player:Player;
 }
 
 interface DispatchProps {
-  push: (route: string) => void;
-  updatePlayer: (data: UpdatePlayerOptions) => void;
-  destroyPlayer: (data: DestroyPlayerOptions) => void;
+  push:(route:string) => void;
+  updatePlayer:(data:UpdatePlayerOptions) => void;
+  destroyPlayer:(data:DestroyPlayerOptions) => void;
 }
 
 interface Props extends OwnProps, DispatchProps, StateProps {
@@ -36,10 +40,10 @@ interface Props extends OwnProps, DispatchProps, StateProps {
     playerId: parseInt(props.match.params.playerId),
     player: state.players.get(props.match.params.playerId, nullPlayer),
   }),
-  {push, updatePlayer, destroyPlayer}
+  {push, updatePlayer, destroyPlayer},
 )
 class ViewPage extends Component<Props> {
-  constructor(props: Props) {
+  constructor(props:Props) {
     super(props);
 
     this.onPlayerChange = this.onPlayerChange.bind(this);
@@ -51,11 +55,11 @@ class ViewPage extends Component<Props> {
       <div>
         Player not found
       </div>
-    )
+    );
   }
 
-  onPlayerChange(player: Player) {
-    this.props.updatePlayer({player})
+  onPlayerChange(player:Player) {
+    this.props.updatePlayer({player});
   }
 
   onDeletePlayerClick() {
@@ -71,7 +75,7 @@ class ViewPage extends Component<Props> {
           Remove Player
         </button>
       </div>
-    )
+    );
   }
 
   render() {
@@ -93,4 +97,4 @@ class ViewPage extends Component<Props> {
   }
 }
 
-export default (ViewPage as any) as ComponentType<OwnProps>
+export default (ViewPage as any) as ComponentType<OwnProps>;

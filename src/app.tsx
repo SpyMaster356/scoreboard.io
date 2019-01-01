@@ -1,13 +1,11 @@
+import {ConnectedRouter} from 'connected-react-router';
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
-import {ConnectedRouter} from "connected-react-router";
-
-import appStore, {persistor} from "./app-store";
-import AppRouter, {history} from "./app.router";
+import {PersistGate} from 'redux-persist/integration/react';
+import appStore, {persistor} from './app-store';
+import AppRouter, {history} from './app.router';
 
 import './app.scss';
-import {PersistGate} from "redux-persist/integration/react";
-
 
 class App extends Component {
   render() {

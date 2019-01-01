@@ -1,41 +1,40 @@
-import React, {Component, ComponentType} from "react";
-import {Link} from "react-router-dom";
-
-import {connect} from "../../redux-connect";
-import Player from "../player.model";
-import PlayerFormView from "../views/player-form.view";
-import {createPlayer, CreatePlayerOptions} from "../players.actions";
-import {push} from "connected-react-router";
-import Routes from "../../routes";
+import {push} from 'connected-react-router';
+import React, {Component, ComponentType} from 'react';
+import {Link} from 'react-router-dom';
+import {connect} from '../../redux-connect';
+import Routes from '../../routes';
+import Player from '../player.model';
+import {createPlayer, CreatePlayerOptions} from '../players.actions';
+import PlayerFormView from '../views/player-form.view';
 
 interface OwnProps {
 }
 
 interface DispatchProps {
-  readonly createPlayer: (data: CreatePlayerOptions) => void;
-  readonly push: (path: string) => void;
+  readonly createPlayer:(data:CreatePlayerOptions) => void;
+  readonly push:(path:string) => void;
 }
 
 interface Props extends OwnProps, DispatchProps {
 }
 
 interface State {
-  readonly player: Player;
+  readonly player:Player;
 }
 
-const initialState: State = {
+const initialState:State = {
   player: {
-    id: "-1",
+    id: '-1',
     name: '',
   },
 };
 
 @connect<{}, DispatchProps, {}>(
   null,
-  {createPlayer, push}
+  {createPlayer, push},
 )
 class PlayerCreatePage extends Component<Props, State> {
-  constructor(props: Props) {
+  constructor(props:Props) {
     super(props);
 
     this.state = initialState;
@@ -44,13 +43,13 @@ class PlayerCreatePage extends Component<Props, State> {
     this.onPlayerSave = this.onPlayerSave.bind(this);
   }
 
-  onPlayerChange(player: Player) {
+  onPlayerChange(player:Player) {
     this.setState({player});
   }
 
   onPlayerSave() {
     this.props.createPlayer({
-      player: this.state.player
+      player: this.state.player,
     });
     this.props.push(Routes.Players.index());
   }
@@ -75,4 +74,4 @@ class PlayerCreatePage extends Component<Props, State> {
   }
 }
 
-export default (PlayerCreatePage as any) as ComponentType<OwnProps>
+export default (PlayerCreatePage as any) as ComponentType<OwnProps>;

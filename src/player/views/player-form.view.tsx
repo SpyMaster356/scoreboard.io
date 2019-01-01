@@ -1,29 +1,29 @@
-import React, {ChangeEvent, Component} from "react";
-import Player from "../player.model";
+import React, {ChangeEvent, Component} from 'react';
+import Player from '../player.model';
 
 interface OwnProps {
-  player: Player;
+  player:Player;
 
-  onPlayerChange?(player: Player): void;
+  onPlayerChange?(player:Player):void;
 }
 
 class PlayerFormView extends Component<OwnProps> {
-  constructor(props: OwnProps) {
+  constructor(props:OwnProps) {
     super(props);
 
     this.onNameChange = this.onNameChange.bind(this);
   }
 
-  onPlayerChange(player: Player) {
+  onPlayerChange(player:Player) {
     if (this.props.onPlayerChange) {
       this.props.onPlayerChange(player);
     }
   }
 
-  onNameChange(event: ChangeEvent<HTMLInputElement>) {
+  onNameChange(event:ChangeEvent<HTMLInputElement>) {
     this.onPlayerChange({
       ...this.props.player,
-      name: event.target.value
+      name: event.target.value,
     });
   }
 
@@ -33,7 +33,7 @@ class PlayerFormView extends Component<OwnProps> {
         <li>
           <label>
             Name:
-            <input type={"text"} value={this.props.player.name} onChange={this.onNameChange} />
+            <input type={'text'} value={this.props.player.name} onChange={this.onNameChange} />
           </label>
         </li>
       </ul>
