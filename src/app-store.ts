@@ -1,13 +1,11 @@
 import {routerMiddleware} from 'connected-react-router';
-import {applyMiddleware, compose, createStore, Store} from 'redux';
+import {applyMiddleware, createStore, Store} from 'redux';
 import {persistReducer, persistStore} from 'redux-persist';
 import immutableTransform from 'redux-persist-transform-immutable';
 import storage from 'redux-persist/lib/storage';
 import appReducer from './app.reducer';
 import {history} from './app.router';
-
-// @ts-ignore
-const composeWithDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 const persistedReducer = persistReducer({
   key: 'scoreboard-io.state',
