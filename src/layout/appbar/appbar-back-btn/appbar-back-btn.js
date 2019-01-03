@@ -1,9 +1,7 @@
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {AppbarBackView} from './appbar-back-btn.view';
-
-const ownPropTypes = {};
 
 const mapStateToProps = () => {
   return {};
@@ -21,5 +19,3 @@ export const AppbarBackBtn = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AppbarBackView);
-
-AppbarBackBtn.propTypes = ownPropTypes;

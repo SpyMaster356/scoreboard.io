@@ -1,13 +1,7 @@
-import React, {PropTypes} from "react";
+import React from "react";
 import Divider from 'material-ui/Divider';
 
 import {PlayerScore} from './player-score';
-
-const propTypes = {
-  playerIds: PropTypes.arrayOf(
-    PropTypes.number.isRequired
-  ).isRequired
-};
 
 function joinWithDivider(accu, elem, index) {
   return accu === null ?
@@ -26,5 +20,3 @@ export const PlayerScoresListView = ({
     }
   </div>
 );
-
-PlayerScoresListView.propTypes = propTypes;

@@ -1,16 +1,23 @@
 import {RouterState} from 'connected-react-router';
 import {combineReducers, Reducer} from 'redux';
-import PlayersReducer, {PlayersState} from './player/players.reducer';
-import RouterReducer from './router.reducer';
+
+import router from './router.reducer';
+import players from './state/players/players.reducer';
+import scores from './state/scores/scores.reducer';
+import round from './state/round/round.reducer';
 
 export interface AppState {
   router:RouterState;
-  players:PlayersState;
+  players:any;
+  scores:any;
+  round:any;
 }
 
 const appReducer:Reducer = combineReducers<AppState>({
-  router: RouterReducer,
-  players: PlayersReducer,
+  router,
+  players,
+  scores,
+  round,
 });
 
 export default appReducer;

@@ -1,13 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import './active-round-score.scss';
-
-const propTypes = {
-  score: PropTypes.number.isRequired,
-  active: PropTypes.bool.isRequired,
-  ending: PropTypes.bool.isRequired,
-};
 
 export const ActiveRoundScoreView = ({
   score,
@@ -28,5 +22,3 @@ export const ActiveRoundScoreView = ({
     </div>
   );
 };
-
-ActiveRoundScoreView.propTypes = propTypes;

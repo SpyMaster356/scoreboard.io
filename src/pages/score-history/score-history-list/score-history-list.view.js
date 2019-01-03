@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {
   Table,
   TableHeader,
@@ -7,16 +7,6 @@ import {
   TableBody,
   TableRowColumn,
 } from 'material-ui';
-
-const propTypes = {
-  roundScores: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.number.isRequired,
-    round: PropTypes.number.isRequired,
-    totalScore: PropTypes.number.isRequired,
-  })).isRequired,
-
-  onEditScore: PropTypes.func.isRequired,
-};
 
 export const ScoreHistoryListView = ({
   roundScores,
@@ -40,7 +30,7 @@ export const ScoreHistoryListView = ({
           <TableRowColumn>
             {score.round}
           </TableRowColumn>
-          <TableRowColumn >
+          <TableRowColumn>
             <div className='score-value' onClick={(e) => onEditScore(e, score)}>
               {score.value >= 1 ? '+' + score.value : score.value}
             </div>
@@ -53,5 +43,3 @@ export const ScoreHistoryListView = ({
     </TableBody>
   </Table>
 );
-
-ScoreHistoryListView.propTypes = propTypes;

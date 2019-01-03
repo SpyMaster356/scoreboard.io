@@ -1,15 +1,4 @@
-import React, {PropTypes} from 'react';
-
-import {playerPropType} from '../../../state/players/player.prop-types';
-
-const propTypes = {
-  rank: PropTypes.number.isRequired,
-  score: PropTypes.oneOfType([
-    PropTypes.number, //Score value
-    PropTypes.string, //or empty string
-  ]).isRequired,
-  players: PropTypes.arrayOf(playerPropType.isRequired).isRequired,
-};
+import React from 'react';
 
 export const PlacementView = ({
   rank,
@@ -24,5 +13,3 @@ export const PlacementView = ({
     <span className="players">{players.map(player => player.name).join(', ')}</span>
   </div>
 );
-
-PlacementView.propTypes = propTypes;

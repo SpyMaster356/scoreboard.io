@@ -1,4 +1,3 @@
-import {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
 import {
@@ -7,10 +6,6 @@ import {
 } from '../../../state/scores/score.actions';
 
 import {PlayerScoreView} from './player-score.view';
-
-const ownPropsTypes = {
-  playerId: PropTypes.number.isRequired
-};
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -34,5 +29,3 @@ export const PlayerScore = connect(
   mapStateToProps,
   mapDispatchToProps
 )(PlayerScoreView);
-
-PlayerScore.propTypes = ownPropsTypes;

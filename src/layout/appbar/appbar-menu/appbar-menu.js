@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push} from 'connected-react-router';
 
 import {newGame, rematch} from '../../../state/game/game.actions';
 import {createPlayer} from '../../../state/players/player.actions';

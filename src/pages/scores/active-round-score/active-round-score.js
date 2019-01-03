@@ -1,11 +1,6 @@
-import {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
 import {ActiveRoundScoreView} from './active-round-score.view';
-
-const ownPropsTypes = {
-  playerId: PropTypes.number.isRequired
-};
 
 const mapStateToProps = (state, ownProps) => {
   let playerScore = state.scores
@@ -26,5 +21,3 @@ export const ActiveRoundScore = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ActiveRoundScoreView);
-
-ActiveRoundScore.propTypes = ownPropsTypes;

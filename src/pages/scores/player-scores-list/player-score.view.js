@@ -1,23 +1,9 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 import {ActiveRoundScore} from '../active-round-score/active-round-score';
 import {ScoreEditorView} from '../../../shared/score-editor.view';
 
 import './player-score.scss';
-
-const propTypes = {
-  player: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  }).isRequired,
-  score: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired
-  }).isRequired,
-
-  onScoreMinus: PropTypes.func.isRequired,
-  onScorePlus: PropTypes.func.isRequired
-};
 
 export const PlayerScoreView = ({
   player,
@@ -41,6 +27,4 @@ export const PlayerScoreView = ({
     </div>
   </div>
 );
-
-PlayerScoreView.propTypes = propTypes;
 

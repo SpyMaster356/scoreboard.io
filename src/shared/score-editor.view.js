@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {
   IconButton
 } from 'material-ui';
@@ -7,22 +7,12 @@ import RemoveCircleOutlineIcon from 'material-ui/svg-icons/content/remove-circle
 
 import './score-editor.scss';
 
-const propTypes = {
-  score: PropTypes.shape({
-    value: PropTypes.number.isRequired
-  }),
-  showSign: PropTypes.bool,
-
-  onScoreMinus: PropTypes.func.isRequired,
-  onScorePlus: PropTypes.func.isRequired
-};
-
 function getScoreString(score, showSign) {
   let scoreString = score.toString();
   if (showSign && score >= 1) {
     scoreString = '+' + scoreString;
   }
-  return scoreString
+  return scoreString;
 }
 
 export const ScoreEditorView = ({
@@ -41,5 +31,3 @@ export const ScoreEditorView = ({
     </IconButton>
   </div>
 );
-
-ScoreEditorView.propTypes = propTypes;

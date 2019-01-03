@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  AppBar as MuiAppBar,
+  AppBar,
 } from 'material-ui';
 
 import {AppbarBackBtn} from './appbar-back-btn/appbar-back-btn';
@@ -10,7 +10,7 @@ export const AppbarView = ({
   prevRoute,
   showBackBtn,
 }) => (
-  <MuiAppBar
+  <AppBar
     title="Scoreboard.io"
     iconElementLeft={showBackBtn ? <AppbarBackBtn prevRoute={prevRoute} /> : <AppbarMenu />}
   />
